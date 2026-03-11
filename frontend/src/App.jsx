@@ -98,14 +98,14 @@ function ControllingTab({ token }) {
     <div className="grid" style={{ gap: "1.25rem" }}>
       <div className="card">
         <div className="card-header">
-          <h2>Controlling-Kommentare generieren</h2>
+          <h3>Controlling-Kommentare generieren</h3>
           {results && (
-            <span className="muted" style={{ fontSize: "0.82rem" }}>
+            <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.75)" }}>
               {results.succeeded}/{results.total} erfolgreich
             </span>
           )}
         </div>
-        <div className="card-body grid">
+        <div className="card-body grid-1">
 
           {/* Upload area */}
           <div
@@ -229,9 +229,9 @@ function ProviderTab({ token }) {
 
   return (
     <div className="card">
-      <div className="card-header"><h2>Mistral API Key</h2></div>
+      <div className="card-header"><h3>Mistral API Key</h3></div>
       <div className="card-body">
-        <form className="grid" style={{ maxWidth: 480 }} onSubmit={handleSave}>
+        <form className="grid-1" style={{ maxWidth: 480 }} onSubmit={handleSave}>
           <label>
             API Key
             <input
@@ -310,11 +310,11 @@ export default function App() {
 
   return (
     <div className="app-layout">
-      <div className="topbar">
-        <span className="topbar-brand">XQT5 <span>Webinar Demo</span></span>
-        <div className="topbar-user">
+      <div className="header">
+        <h2>XQT5 Webinar Demo</h2>
+        <div className="header-user">
           <span>{currentUser?.username || "…"}</span>
-          <button className="btn btn-outline btn-sm" style={{ color: "#c9d8ec", borderColor: "#4a6180" }} onClick={handleLogout}>
+          <button className="btn btn-outline-light btn-sm" onClick={handleLogout}>
             Abmelden
           </button>
         </div>
@@ -322,9 +322,9 @@ export default function App() {
 
       <div className="card" style={{ overflow: "visible" }}>
         <div className="card-body" style={{ paddingBottom: 0 }}>
-          <div className="tabs">
+          <div className="admin-tabs">
             {TABS.map((t) => (
-              <button key={t.id} className={`tab${activeTab === t.id ? " active" : ""}`} onClick={() => setActiveTab(t.id)}>
+              <button key={t.id} className={`admin-tab${activeTab === t.id ? " active" : ""}`} onClick={() => setActiveTab(t.id)}>
                 {t.label}
               </button>
             ))}

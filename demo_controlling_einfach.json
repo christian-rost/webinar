@@ -1,0 +1,103 @@
+{
+  "Uebergabedaten": [
+    {
+      "betrachtete_Monate": "1-6",
+      "Vergleich": {
+        "Von": {
+          "Jahr": "2025",
+          "Modus": "Ist",
+          "Planversion": null
+        },
+        "Zu": {
+          "Jahr": "2025",
+          "Modus": "WiPlan",
+          "Planversion": null
+        }
+      },
+      "Kunden": [
+        {
+          "Kunde": "Müller Maschinenbau GmbH",
+          "Servicegruppen": [
+            {
+              "Servicegruppe": "IT-Infrastruktur",
+              "Services": [
+                {
+                  "Service": "Arbeitsplatz",
+                  "Gesamtabweichung": "+187 T€",
+                  "Top-Überschreitungen (positiv)": [
+                    {
+                      "PSP_Nummer": "10.AP100010.01",
+                      "Teilservice": "Laptop Hardware Müller GmbH",
+                      "Beitrag": "Laptop Hardware Müller GmbH (+142 T€, 31%)",
+                      "Abweichung": "+31%",
+                      "Fachkommentare": [
+                        {
+                          "Bezug": "2025-02",
+                          "Kommentare": "Vorgezogene Ersatzbeschaffung von 80 Laptops aufgrund ungeplanter Geräteausfälle in der Produktion.",
+                          "Betrag": "+89 T€"
+                        },
+                        {
+                          "Bezug": "2025-04",
+                          "Kommentare": "Zusatzbedarf durch Onboarding 15 neuer Mitarbeiter im Bereich Konstruktion.",
+                          "Betrag": "+53 T€"
+                        }
+                      ]
+                    },
+                    {
+                      "PSP_Nummer": "10.AP200010.01",
+                      "Teilservice": "Mobile Endgeräte Müller GmbH",
+                      "Beitrag": "Mobile Endgeräte Müller GmbH (+45 T€, 18%)",
+                      "Abweichung": "+18%",
+                      "Fachkommentare": [
+                        {
+                          "Bezug": "2025-03",
+                          "Kommentare": "Einführung mobiler Zeiterfassung in der Fertigung erforderte ungeplante Beschaffung von 60 Tablets.",
+                          "Betrag": "+45 T€"
+                        }
+                      ]
+                    }
+                  ],
+                  "Top-Unterschreitungen (negativ)": [
+                    {
+                      "PSP_Nummer": "10.AP300010.01",
+                      "Teilservice": "Monitore & Peripherie Müller GmbH",
+                      "Beitrag": "Monitore & Peripherie Müller GmbH (-0 T€, -0%)",
+                      "Abweichung": "0%",
+                      "Fachkommentare": []
+                    }
+                  ],
+                  "Sonstige Mehrausgaben": "0 T€",
+                  "Sonstige Minderausgaben": "0 T€",
+                  "Sonstige": []
+                },
+                {
+                  "Service": "Software & Lizenzen",
+                  "Gesamtabweichung": "-55 T€",
+                  "Top-Überschreitungen (positiv)": [],
+                  "Top-Unterschreitungen (negativ)": [
+                    {
+                      "PSP_Nummer": "10.SW100020.01",
+                      "Teilservice": "Microsoft 365 Lizenzen Müller GmbH",
+                      "Beitrag": "Microsoft 365 Lizenzen Müller GmbH (-55 T€, -12%)",
+                      "Abweichung": "-12%",
+                      "Fachkommentare": [
+                        {
+                          "Bezug": "2025-01",
+                          "Kommentare": "Rückgabe von 50 ungenutzten Lizenzen nach Restrukturierung der Vertriebsabteilung im Dezember 2024.",
+                          "Betrag": "-55 T€"
+                        }
+                      ]
+                    }
+                  ],
+                  "Sonstige Mehrausgaben": "0 T€",
+                  "Sonstige Minderausgaben": "0 T€",
+                  "Sonstige": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

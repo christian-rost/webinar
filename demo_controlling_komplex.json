@@ -1,0 +1,306 @@
+{
+  "Uebergabedaten": [
+    {
+      "betrachtete_Monate": "1-10",
+      "Vergleich": {
+        "Von": {
+          "Jahr": "2025",
+          "Modus": "Ist",
+          "Planversion": null
+        },
+        "Zu": {
+          "Jahr": "2025",
+          "Modus": "WiPlan",
+          "Planversion": null
+        }
+      },
+      "Kunden": [
+        {
+          "Kunde": "",
+          "Servicegruppen": [
+            {
+              "Servicegruppe": "Projekte",
+              "Services": [
+                {
+                  "Service": "Kundenübergreifende Projekte",
+                  "Gesamtabweichung": "+1.240 T€",
+                  "Top-Überschreitungen (positiv)": [
+                    {
+                      "PSP_Nummer": "30.P0001010.A0",
+                      "Teilservice": "Cloud-Migration (ÜG) OPM",
+                      "Beitrag": "Cloud-Migration (ÜG) OPM (+680 T€, 100%)",
+                      "Abweichung": "+100%",
+                      "Fachkommentare": [
+                        {
+                          "Bezug": "2025-07",
+                          "Kommentare": "Vorgezogener Start der Azure-Migration aufgrund Vertragsende Rechenzentrum Hannover. Externe Beraterkosten für Hyperscaler-Architektur.",
+                          "Betrag": "+280 T€"
+                        },
+                        {
+                          "Bezug": "2025-09",
+                          "Kommentare": "Abrechnung erster Migrationsmeilenstein inkl. Lizenzkosten Hyperscaler Q3.",
+                          "Betrag": "+400 T€"
+                        }
+                      ]
+                    },
+                    {
+                      "PSP_Nummer": "30.P0001020.A0",
+                      "Teilservice": "KI-Automatisierung Controlling (ÜG)",
+                      "Beitrag": "KI-Automatisierung Controlling (ÜG) (+320 T€, 100%)",
+                      "Abweichung": "+100%",
+                      "Fachkommentare": [
+                        {
+                          "Bezug": "2025-08",
+                          "Kommentare": "Projektstart ungeplant vorgezogen, da Freigabe durch Vorstand im Juli erteilt. LLM-Lizenz und Implementierungspartner.",
+                          "Betrag": "+320 T€"
+                        }
+                      ]
+                    },
+                    {
+                      "PSP_Nummer": "30.P0001030.A0",
+                      "Teilservice": "Cybersecurity Audit (ÜG)",
+                      "Beitrag": "Cybersecurity Audit (ÜG) (+240 T€, 80%)",
+                      "Abweichung": "+80%",
+                      "Fachkommentare": []
+                    }
+                  ],
+                  "Top-Unterschreitungen (negativ)": [],
+                  "Sonstige Mehrausgaben": "+0 T€",
+                  "Sonstige Minderausgaben": "0 T€",
+                  "Sonstige": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Kunde": "Schmidt Automotive AG",
+          "Servicegruppen": [
+            {
+              "Servicegruppe": "Servicegruppen",
+              "Services": [
+                {
+                  "Service": "Arbeitsplatz",
+                  "Gesamtabweichung": "-390 T€",
+                  "Top-Überschreitungen (positiv)": [
+                    {
+                      "PSP_Nummer": "60.AP100011.10",
+                      "Teilservice": "Dockingstations Schmidt AG",
+                      "Beitrag": "Dockingstations Schmidt AG (+310 T€, 100%)",
+                      "Abweichung": "+100%",
+                      "Fachkommentare": [
+                        {
+                          "Bezug": "2025-05",
+                          "Kommentare": "Nach Aufnahme des Projektpreises für USB-C Dockingstations in den Standardwarenkorb werden diese regulär als Kaufartikel abgerechnet. Im WiPlan waren Kaufartikel als Jahressumme im Dezember geplant.",
+                          "Betrag": "+155 T€"
+                        },
+                        {
+                          "Bezug": "2025-09",
+                          "Kommentare": "Starker Anstieg durch Fat-Client-Rollout Werk Ingolstadt. Ablösung Citrix-Umgebung beschleunigt.",
+                          "Betrag": "+155 T€"
+                        }
+                      ]
+                    },
+                    {
+                      "PSP_Nummer": "60.AP200011.10",
+                      "Teilservice": "AP HW-Sonderbedarf (NSSR) Schmidt AG",
+                      "Beitrag": "AP HW-Sonderbedarf (NSSR) Schmidt AG (+180 T€, 52%)",
+                      "Abweichung": "+52%",
+                      "Fachkommentare": [
+                        {
+                          "Bezug": "2025-03",
+                          "Kommentare": "Mehrkostenpauschale CC irrtümlich über AP Sonderbedarf kontiert. Korrektur erfolgte im April.",
+                          "Betrag": "+110 T€"
+                        },
+                        {
+                          "Bezug": "2025-04",
+                          "Kommentare": "Korrekturbuchung März. Kontierung angepasst auf AP Hardware gemäß WiPlan.",
+                          "Betrag": "-30 T€"
+                        },
+                        {
+                          "Bezug": "2025-06",
+                          "Kommentare": "Ungeplante NSSR für Sicherheitsupdates Industrie-PCs Fertigungslinie 3.",
+                          "Betrag": "+100 T€"
+                        }
+                      ]
+                    }
+                  ],
+                  "Top-Unterschreitungen (negativ)": [
+                    {
+                      "PSP_Nummer": "60.AP100010.10",
+                      "Teilservice": "Arbeitsplatz Hardware Schmidt AG",
+                      "Beitrag": "Arbeitsplatz Hardware Schmidt AG (-720 T€, -28%)",
+                      "Abweichung": "-28%",
+                      "Fachkommentare": [
+                        {
+                          "Bezug": "Gesamt",
+                          "Kommentare": "Verzögerungen Fat-Client-Rollout Werk München durch Lieferengpass bei Lenovo. Nachholung für Q4 2025 geplant.",
+                          "Betrag": "-720 T€"
+                        }
+                      ]
+                    },
+                    {
+                      "PSP_Nummer": "60.AP300010.10",
+                      "Teilservice": "Beigestellte Leistungen AP Schmidt AG",
+                      "Beitrag": "Beigestellte Leistungen AP Schmidt AG (-160 T€, -22%)",
+                      "Abweichung": "-22%",
+                      "Fachkommentare": [
+                        {
+                          "Bezug": "2025-06",
+                          "Kommentare": "Servicepauschale für beigestellte Hardware entfallen nach Vertragsanpassung.",
+                          "Betrag": "-40 T€"
+                        },
+                        {
+                          "Bezug": "2025-07",
+                          "Kommentare": "Servicepauschale für beigestellte Hardware entfallen nach Vertragsanpassung.",
+                          "Betrag": "-40 T€"
+                        },
+                        {
+                          "Bezug": "2025-08",
+                          "Kommentare": "Servicepauschale für beigestellte Hardware entfallen nach Vertragsanpassung.",
+                          "Betrag": "-40 T€"
+                        },
+                        {
+                          "Bezug": "2025-09",
+                          "Kommentare": "Servicepauschale für beigestellte Hardware entfallen nach Vertragsanpassung.",
+                          "Betrag": "-40 T€"
+                        }
+                      ]
+                    }
+                  ],
+                  "Sonstige Mehrausgaben": "0 T€",
+                  "Sonstige Minderausgaben": "0 T€",
+                  "Sonstige": []
+                },
+                {
+                  "Service": "Rechenzentrum",
+                  "Gesamtabweichung": "+215 T€",
+                  "Top-Überschreitungen (positiv)": [
+                    {
+                      "PSP_Nummer": "60.RZ100010.10",
+                      "Teilservice": "Storage-Kapazität Schmidt AG",
+                      "Beitrag": "Storage-Kapazität Schmidt AG (+215 T€, 43%)",
+                      "Abweichung": "+43%",
+                      "Fachkommentare": [
+                        {
+                          "Bezug": "Gesamt",
+                          "Kommentare": "Anstieg durch Einführung neuer CAD-Umgebung für E-Mobilität-Plattform. Datenmenge überstieg Planungsannahmen aus 2024 deutlich.",
+                          "Betrag": "+215 T€"
+                        }
+                      ]
+                    }
+                  ],
+                  "Top-Unterschreitungen (negativ)": [],
+                  "Sonstige Mehrausgaben": "0 T€",
+                  "Sonstige Minderausgaben": "0 T€",
+                  "Sonstige": []
+                }
+              ]
+            },
+            {
+              "Servicegruppe": "Individual",
+              "Services": [
+                {
+                  "Service": "Individuelle Beauftragungen",
+                  "Gesamtabweichung": "-88 T€",
+                  "Top-Überschreitungen (positiv)": [],
+                  "Top-Unterschreitungen (negativ)": [
+                    {
+                      "PSP_Nummer": "35.IND00010.10",
+                      "Teilservice": "Kund.ind. Softwareentwicklung Schmidt AG",
+                      "Beitrag": "Kund.ind. Softwareentwicklung Schmidt AG (-88 T€, -15%)",
+                      "Abweichung": "-15%",
+                      "Fachkommentare": [
+                        {
+                          "Bezug": "2025-10",
+                          "Kommentare": "Abgrenzungsproblematik: Fehlende Abrechnung Teilleistungen MES-Integration September/Oktober. Nachberechnung für November angekündigt.",
+                          "Betrag": "-88 T€"
+                        }
+                      ]
+                    }
+                  ],
+                  "Sonstige Mehrausgaben": "0 T€",
+                  "Sonstige Minderausgaben": "0 T€",
+                  "Sonstige": [
+                    {
+                      "PSP_Nummer": "35.IND00010.10",
+                      "Teilservice": "Individuelle Beauftragungen|Kund.ind. Softwareentwicklung Schmidt AG",
+                      "Fachkommentare": [
+                        {
+                          "Bezug": "2025-10",
+                          "Kommentare": "Abgrenzungsproblematik: Fehlende Abrechnung Teilleistungen MES-Integration September/Oktober. Nachberechnung für November angekündigt.",
+                          "Betrag": "-88 T€"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Kunde": "Weber Logistik GmbH",
+          "Servicegruppen": [
+            {
+              "Servicegruppe": "Servicegruppen",
+              "Services": [
+                {
+                  "Service": "Netzwerk & Kommunikation",
+                  "Gesamtabweichung": "+127 T€",
+                  "Top-Überschreitungen (positiv)": [
+                    {
+                      "PSP_Nummer": "60.NW100010.30",
+                      "Teilservice": "SD-WAN Erweiterung Weber GmbH",
+                      "Beitrag": "SD-WAN Erweiterung Weber GmbH (+127 T€, 64%)",
+                      "Abweichung": "+64%",
+                      "Fachkommentare": [
+                        {
+                          "Bezug": "2025-06",
+                          "Kommentare": "Anbindung drei neuer Logistikstandorte (Dortmund, Leipzig, Wien) auf Kundenwunsch vorgezogen. Vertragsanpassung in Abstimmung.",
+                          "Betrag": "+85 T€"
+                        },
+                        {
+                          "Bezug": "2025-08",
+                          "Kommentare": "Erhöhte Bandbreitenanforderungen durch Live-Tracking-System für Kühlkette.",
+                          "Betrag": "+42 T€"
+                        }
+                      ]
+                    }
+                  ],
+                  "Top-Unterschreitungen (negativ)": [],
+                  "Sonstige Mehrausgaben": "0 T€",
+                  "Sonstige Minderausgaben": "0 T€",
+                  "Sonstige": []
+                },
+                {
+                  "Service": "Arbeitsplatz",
+                  "Gesamtabweichung": "-42 T€",
+                  "Top-Überschreitungen (positiv)": [],
+                  "Top-Unterschreitungen (negativ)": [
+                    {
+                      "PSP_Nummer": "60.AP100010.30",
+                      "Teilservice": "Arbeitsplatz Hardware Weber GmbH",
+                      "Beitrag": "Arbeitsplatz Hardware Weber GmbH (-42 T€, -9%)",
+                      "Abweichung": "-9%",
+                      "Fachkommentare": [
+                        {
+                          "Bezug": "Gesamt",
+                          "Kommentare": "Leichte Unterausschöpfung durch Bestellverzögerungen bei Thin Clients für Lager-Terminals. Nachlieferung Oktober geplant.",
+                          "Betrag": "-42 T€"
+                        }
+                      ]
+                    }
+                  ],
+                  "Sonstige Mehrausgaben": "0 T€",
+                  "Sonstige Minderausgaben": "0 T€",
+                  "Sonstige": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

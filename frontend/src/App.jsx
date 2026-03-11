@@ -193,7 +193,7 @@ function ServiceCard({ kunde, servicegruppe, service, comment, showComments }) {
                   <DeviationBar pct={t.Abweichung} positive={true} />
                   <span className="bi-row-amount bi-amount-pos">{t.Beitrag?.match(/([-+]\d[\d.,]*\s*T€)/)?.[1] || ""}</span>
                 </div>
-                {t.Fachkommentare?.length > 0 && (
+                {showComments && t.Fachkommentare?.length > 0 && (
                   <div className="bi-comment">{t.Fachkommentare[0].Kommentare}</div>
                 )}
               </div>
@@ -211,7 +211,7 @@ function ServiceCard({ kunde, servicegruppe, service, comment, showComments }) {
                   <DeviationBar pct={t.Abweichung} positive={false} />
                   <span className="bi-row-amount bi-amount-neg">{t.Beitrag?.match(/([-+]\d[\d.,]*\s*T€)/)?.[1] || ""}</span>
                 </div>
-                {t.Fachkommentare?.length > 0 && (
+                {showComments && t.Fachkommentare?.length > 0 && (
                   <div className="bi-comment">{t.Fachkommentare[0].Kommentare}</div>
                 )}
               </div>
@@ -319,11 +319,10 @@ function DashboardTab({ jsonText, kiResults, onSwitchToKI }) {
 
       {/* Actions */}
       <div className="actions-row">
-        {hasComments ? (
-          <button className="btn btn-outline btn-sm" onClick={() => setShowComments(v => !v)}>
-            {showComments ? "Kommentare ausblenden" : "Kommentare einblenden"}
-          </button>
-        ) : (
+        <button className="btn btn-outline btn-sm" onClick={() => setShowComments(v => !v)}>
+          {showComments ? "Kommentare ausblenden" : "Kommentare einblenden"}
+        </button>
+        {!hasComments && (
           <button className="btn btn-primary btn-sm" onClick={onSwitchToKI}>
             KI-Kommentare generieren →
           </button>

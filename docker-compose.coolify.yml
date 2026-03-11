@@ -13,9 +13,6 @@ services:
       MISTRAL_API_KEY: ${MISTRAL_API_KEY:-}
     expose:
       - "8000"
-    networks:
-      - coolify
-      - default
     restart: unless-stopped
 
   frontend:
@@ -26,13 +23,6 @@ services:
         VITE_API_BASE: ${VITE_API_BASE}
     expose:
       - "80"
-    networks:
-      - coolify
-      - default
     depends_on:
       - backend
     restart: unless-stopped
-
-networks:
-  coolify:
-    external: true

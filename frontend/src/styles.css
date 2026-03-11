@@ -327,6 +327,180 @@ textarea.input {
 .badge-ok { background: #dcfce7; color: #166534; }
 .badge-error { background: #fee2e2; color: #991b1b; }
 
+/* BI Dashboard */
+:root {
+  --color-danger: #dc2626;
+  --color-success: #16a34a;
+}
+
+.bi-meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.bi-meta-item {
+  flex: 1 1 140px;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray);
+  border-radius: 6px;
+  padding: 0.65rem 0.9rem;
+}
+
+.bi-meta-label {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--color-text-light);
+  margin-bottom: 0.2rem;
+}
+
+.bi-meta-value {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.bi-amount-pos { color: var(--color-danger); }
+.bi-amount-neg { color: var(--color-success); }
+
+.bi-service-card {
+  background: var(--color-white);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+.bi-service-header {
+  background: var(--color-dark);
+  color: var(--color-white);
+  padding: 0.75rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.bi-service-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.bi-kunde {
+  font-size: 0.82rem;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.bi-sg {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.55);
+}
+
+.bi-sg::before { content: "/ "; }
+
+.bi-service-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.bi-service-name::before { content: "/ "; color: rgba(255,255,255,0.55); }
+
+.bi-deviation-badge {
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.2rem 0.7rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.bi-deviation-pos { background: rgba(220,38,38,0.18); color: #fca5a5; }
+.bi-deviation-neg { background: rgba(22,163,74,0.18); color: #86efac; }
+
+.bi-service-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.bi-column {
+  padding: 1rem 1.2rem;
+}
+
+.bi-column + .bi-column {
+  border-left: 1px solid var(--color-gray);
+}
+
+.bi-column-header {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.9px;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid;
+}
+
+.bi-column-header-pos { color: var(--color-danger); border-color: var(--color-danger); }
+.bi-column-header-neg { color: var(--color-success); border-color: var(--color-success); }
+
+.bi-row {
+  margin-bottom: 0.9rem;
+}
+
+.bi-row:last-child { margin-bottom: 0; }
+
+.bi-row-label {
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--color-dark);
+  margin-bottom: 0.3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bi-row-chart {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.bi-bar-track {
+  flex: 1;
+  height: 8px;
+  background: var(--color-light-gray);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bi-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.bi-row-amount {
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+  min-width: 70px;
+  text-align: right;
+}
+
+.bi-comment {
+  font-size: 0.78rem;
+  color: var(--color-text-light);
+  margin-top: 0.25rem;
+  line-height: 1.4;
+  font-style: italic;
+}
+
 @media (max-width: 860px) {
   .grid { grid-template-columns: 1fr; }
   .header { flex-direction: column; align-items: flex-start; gap: 0.4rem; }

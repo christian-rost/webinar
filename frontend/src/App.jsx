@@ -167,7 +167,7 @@ function DeviationBadge({ value }) {
   )
 }
 
-function ServiceCard({ kunde, servicegruppe, service, comment, showComments }) {
+function ServiceCard({ kunde, servicegruppe, service, comment, showFachkommentare, showKiComments }) {
   const tops = service["Top-Überschreitungen (positiv)"] || []
   const flops = service["Top-Unterschreitungen (negativ)"] || []
 
@@ -193,7 +193,7 @@ function ServiceCard({ kunde, servicegruppe, service, comment, showComments }) {
                   <DeviationBar pct={t.Abweichung} positive={true} />
                   <span className="bi-row-amount bi-amount-pos">{t.Beitrag?.match(/([-+]\d[\d.,]*\s*T€)/)?.[1] || ""}</span>
                 </div>
-                {showComments && t.Fachkommentare?.length > 0 && (
+                {showFachkommentare && t.Fachkommentare?.length > 0 && (
                   <div className="bi-comment">{t.Fachkommentare[0].Kommentare}</div>
                 )}
               </div>
@@ -211,7 +211,7 @@ function ServiceCard({ kunde, servicegruppe, service, comment, showComments }) {
                   <DeviationBar pct={t.Abweichung} positive={false} />
                   <span className="bi-row-amount bi-amount-neg">{t.Beitrag?.match(/([-+]\d[\d.,]*\s*T€)/)?.[1] || ""}</span>
                 </div>
-                {showComments && t.Fachkommentare?.length > 0 && (
+                {showFachkommentare && t.Fachkommentare?.length > 0 && (
                   <div className="bi-comment">{t.Fachkommentare[0].Kommentare}</div>
                 )}
               </div>
@@ -226,7 +226,7 @@ function ServiceCard({ kunde, servicegruppe, service, comment, showComments }) {
         )}
       </div>
 
-      {showComments && comment && (
+      {showKiComments && comment && (
         <div className="bi-comment-panel">
           <div className="bi-comment-panel-header">KI-Kommentar</div>
           <div className="markdown-content">
@@ -239,7 +239,8 @@ function ServiceCard({ kunde, servicegruppe, service, comment, showComments }) {
 }
 
 function DashboardTab({ jsonText, kiResults, onSwitchToKI }) {
-  const [showComments, setShowComments] = useState(false)
+  const [showFachkommentare, setShowFachkommentare] = useState(false)
+  const [showKiComments, setShowKiComments] = useState(false)
   const [error, setError] = useState("")
   const [data, setData] = useState(null)
 
@@ -319,10 +320,14 @@ function DashboardTab({ jsonText, kiResults, onSwitchToKI }) {
 
       {/* Actions */}
       <div className="actions-row">
-        <button className="btn btn-outline btn-sm" onClick={() => setShowComments(v => !v)}>
-          {showComments ? "Kommentare ausblenden" : "Kommentare einblenden"}
+        <button className="btn btn-outline btn-sm" onClick={() => setShowFachkommentare(v => !v)}>
+          {showFachkommentare ? "Fachkommentare ausblenden" : "Fachkommentare einblenden"}
         </button>
-        {!hasComments && (
+        {hasComments ? (
+          <button className="btn btn-outline btn-sm" onClick={() => setShowKiComments(v => !v)}>
+            {showKiComments ? "KI-Kommentare ausblenden" : "KI-Kommentare einblenden"}
+          </button>
+        ) : (
           <button className="btn btn-primary btn-sm" onClick={onSwitchToKI}>
             KI-Kommentare generieren →
           </button>
@@ -338,7 +343,8 @@ function DashboardTab({ jsonText, kiResults, onSwitchToKI }) {
             servicegruppe={s.servicegruppe}
             service={s.service}
             comment={findComment(s)}
-            showComments={showComments}
+            showFachkommentare={showFachkommentare}
+            showKiComments={showKiComments}
           />
         ))}
       </div>

@@ -1,12 +1,45 @@
 from __future__ import annotations
 
+import hashlib
 import json
+import logging
+import os
 import time
+from pathlib import Path
 from typing import Any, Dict, List
 
 import httpx
 
-from .config import MISTRAL_API_KEY
+from .config import DEMO_MODE, MISTRAL_API_KEY
+
+logger = logging.getLogger(__name__)
+
+# Cache-Datei liegt neben diesem Modul im Ordner "response_cache"
+_CACHE_DIR = Path(__file__).parent / "response_cache"
+_CACHE_FILE = _CACHE_DIR / "ki_responses.json"
+
+
+def _load_cache() -> Dict[str, str]:
+    try:
+        if _CACHE_FILE.exists():
+            return json.loads(_CACHE_FILE.read_text(encoding="utf-8"))
+    except Exception as exc:
+        logger.warning("Cache konnte nicht gelesen werden: %s", exc)
+    return {}
+
+
+def _save_cache(cache: Dict[str, str]) -> None:
+    try:
+        _CACHE_DIR.mkdir(parents=True, exist_ok=True)
+        _CACHE_FILE.write_text(json.dumps(cache, ensure_ascii=False, indent=2), encoding="utf-8")
+    except Exception as exc:
+        logger.warning("Cache konnte nicht gespeichert werden: %s", exc)
+
+
+def _cache_key(item_data: Dict[str, Any]) -> str:
+    """Stabiler Hash über die Item-Daten als Cache-Schlüssel."""
+    raw = json.dumps(item_data, ensure_ascii=False, sort_keys=True)
+    return hashlib.sha256(raw.encode()).hexdigest()[:16]
 
 MISTRAL_CHAT_URL = "https://api.mistral.ai/v1/chat/completions"
 MISTRAL_MODEL = "mistral-large-latest"
@@ -118,7 +151,7 @@ def _flatten_service_items(uebergabedaten: List[Dict[str, Any]]) -> List[Dict[st
 
 def run_controlling(input_json: Dict[str, Any]) -> Dict[str, Any]:
     api_key = get_api_key()
-    if not api_key:
+    if not api_key and not DEMO_MODE:
         return {"status": "error", "reason": "Mistral API Key nicht konfiguriert", "results": []}
 
     uebergabedaten = input_json.get("Uebergabedaten") or []
@@ -129,12 +162,31 @@ def run_controlling(input_json: Dict[str, Any]) -> Dict[str, Any]:
     if not service_items:
         return {"status": "error", "reason": "Keine Services im JSON gefunden", "results": []}
 
+    cache = _load_cache()
+    cache_dirty = False
     results = []
     for idx, item in enumerate(service_items):
+        key = _cache_key(item["data"])
+        cached_markdown = cache.get(key)
+
+        if DEMO_MODE and cached_markdown:
+            # Demo-Modus: immer aus Cache, kein API-Aufruf
+            logger.info("DEMO_MODE: Cache-Treffer für %s / %s", item["kunde"], item["service"])
+            results.append({
+                "status": "ok",
+                "kunde": item["kunde"],
+                "servicegruppe": item["servicegruppe"],
+                "service": item["service"],
+                "markdown": cached_markdown,
+            })
+            continue
+
         if idx > 0:
             time.sleep(BATCH_INTERVAL_SECONDS)
         try:
             markdown_text = _call_mistral(api_key, _build_user_prompt(item["data"]))
+            cache[key] = markdown_text
+            cache_dirty = True
             results.append({
                 "status": "ok",
                 "kunde": item["kunde"],
@@ -143,14 +195,28 @@ def run_controlling(input_json: Dict[str, Any]) -> Dict[str, Any]:
                 "markdown": markdown_text,
             })
         except Exception as exc:
-            results.append({
-                "status": "error",
-                "kunde": item["kunde"],
-                "servicegruppe": item["servicegruppe"],
-                "service": item["service"],
-                "reason": str(exc),
-                "markdown": "",
-            })
+            if cached_markdown:
+                # Fallback auf gecachte Antwort bei API-Fehler
+                logger.warning("API-Fehler, verwende Cache-Fallback für %s: %s", item["service"], exc)
+                results.append({
+                    "status": "ok",
+                    "kunde": item["kunde"],
+                    "servicegruppe": item["servicegruppe"],
+                    "service": item["service"],
+                    "markdown": cached_markdown,
+                })
+            else:
+                results.append({
+                    "status": "error",
+                    "kunde": item["kunde"],
+                    "servicegruppe": item["servicegruppe"],
+                    "service": item["service"],
+                    "reason": str(exc),
+                    "markdown": "",
+                })
+
+    if cache_dirty:
+        _save_cache(cache)
 
     ok_count = sum(1 for r in results if r["status"] == "ok")
     return {

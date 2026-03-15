@@ -16,3 +16,4 @@ ADMIN_USERNAME = os.getenv("ADMIN_USERNAME", "admin")
 ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "")
 
 MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY", "")
+DEMO_MODE = os.getenv("DEMO_MODE", "false").lower() in ("true", "1", "yes")

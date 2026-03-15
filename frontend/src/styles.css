@@ -299,7 +299,10 @@ textarea.input {
 
 .result-card-body .markdown-content h1,
 .result-card-body .markdown-content h2,
-.result-card-body .markdown-content h3 {
+.result-card-body .markdown-content h3,
+.bi-comment-panel .markdown-content h1,
+.bi-comment-panel .markdown-content h2,
+.bi-comment-panel .markdown-content h3 {
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--color-dark);
@@ -308,14 +311,23 @@ textarea.input {
 
 .result-card-body .markdown-content h1:first-child,
 .result-card-body .markdown-content h2:first-child,
-.result-card-body .markdown-content h3:first-child { margin-top: 0; }
+.result-card-body .markdown-content h3:first-child,
+.bi-comment-panel .markdown-content h1:first-child,
+.bi-comment-panel .markdown-content h2:first-child,
+.bi-comment-panel .markdown-content h3:first-child { margin-top: 0; }
 
-.result-card-body .markdown-content p { margin-bottom: 0.65rem; font-size: 0.9rem; line-height: 1.65; }
-.result-card-body .markdown-content p:last-child { margin-bottom: 0; }
-.result-card-body .markdown-content strong { font-weight: 600; color: var(--color-dark); }
+.result-card-body .markdown-content p,
+.bi-comment-panel .markdown-content p { margin-bottom: 0.65rem; font-size: 0.9rem; line-height: 1.65; }
+.result-card-body .markdown-content p:last-child,
+.bi-comment-panel .markdown-content p:last-child { margin-bottom: 0; }
+.result-card-body .markdown-content strong,
+.bi-comment-panel .markdown-content strong { font-weight: 600; color: var(--color-dark); }
 .result-card-body .markdown-content ul,
-.result-card-body .markdown-content ol { padding-left: 1.4rem; margin-bottom: 0.65rem; }
-.result-card-body .markdown-content li { font-size: 0.9rem; line-height: 1.6; margin-bottom: 0.2rem; }
+.result-card-body .markdown-content ol,
+.bi-comment-panel .markdown-content ul,
+.bi-comment-panel .markdown-content ol { padding-left: 1.4rem; margin-bottom: 0.65rem; }
+.result-card-body .markdown-content li,
+.bi-comment-panel .markdown-content li { font-size: 0.9rem; line-height: 1.6; margin-bottom: 0.2rem; }
 
 .badge {
   display: inline-block;

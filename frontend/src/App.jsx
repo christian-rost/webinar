@@ -193,9 +193,14 @@ function ServiceCard({ kunde, servicegruppe, service, comment, showFachkommentar
                   <DeviationBar pct={t.Abweichung} positive={true} />
                   <span className="bi-row-amount bi-amount-pos">{t.Beitrag?.match(/([-+]\d[\d.,]*\s*T€)/)?.[1] || ""}</span>
                 </div>
-                {showFachkommentare && t.Fachkommentare?.length > 0 && (
-                  <div className="bi-comment">{t.Fachkommentare[0].Kommentare}</div>
-                )}
+                {showFachkommentare && t.Fachkommentare?.length > 0 && t.Fachkommentare.map((fk, j) => (
+                  <div key={j} className="bi-comment">
+                    {(fk.Bezug || fk.Betrag) && (
+                      <span className="bi-comment-meta">{[fk.Bezug, fk.Betrag].filter(Boolean).join(" · ")}: </span>
+                    )}
+                    {fk.Kommentare}
+                  </div>
+                ))}
               </div>
             ))}
           </div>
@@ -211,9 +216,14 @@ function ServiceCard({ kunde, servicegruppe, service, comment, showFachkommentar
                   <DeviationBar pct={t.Abweichung} positive={false} />
                   <span className="bi-row-amount bi-amount-neg">{t.Beitrag?.match(/([-+]\d[\d.,]*\s*T€)/)?.[1] || ""}</span>
                 </div>
-                {showFachkommentare && t.Fachkommentare?.length > 0 && (
-                  <div className="bi-comment">{t.Fachkommentare[0].Kommentare}</div>
-                )}
+                {showFachkommentare && t.Fachkommentare?.length > 0 && t.Fachkommentare.map((fk, j) => (
+                  <div key={j} className="bi-comment">
+                    {(fk.Bezug || fk.Betrag) && (
+                      <span className="bi-comment-meta">{[fk.Bezug, fk.Betrag].filter(Boolean).join(" · ")}: </span>
+                    )}
+                    {fk.Kommentare}
+                  </div>
+                ))}
               </div>
             ))}
           </div>
